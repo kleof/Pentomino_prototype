@@ -28,6 +28,7 @@
   },
   "name":"Pentomino Prototype",
   "resources":[
+    {"id":{"name":"ac_elastic_bounce","path":"animcurves/ac_elastic_bounce/ac_elastic_bounce.yy",},},
     {"id":{"name":"EaseFastToSlow","path":"animcurves/EaseFastToSlow/EaseFastToSlow.yy",},},
     {"id":{"name":"EaseHeartbeat","path":"animcurves/EaseHeartbeat/EaseHeartbeat.yy",},},
     {"id":{"name":"EaseMidSlow","path":"animcurves/EaseMidSlow/EaseMidSlow.yy",},},
@@ -49,6 +50,7 @@
     {"id":{"name":"TGMX_9_Settings","path":"scripts/TGMX_9_Settings/TGMX_9_Settings.yy",},},
     {"id":{"name":"TGMX_Experimental","path":"scripts/TGMX_Experimental/TGMX_Experimental.yy",},},
     {"id":{"name":"TGMX_System","path":"scripts/TGMX_System/TGMX_System.yy",},},
+    {"id":{"name":"Sequence1","path":"sequences/Sequence1/Sequence1.yy",},},
     {"id":{"name":"s_block","path":"sprites/s_block/s_block.yy",},},
   ],
   "resourceType":"GMProject",
