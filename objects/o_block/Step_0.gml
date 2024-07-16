@@ -1,4 +1,3 @@
-
 var _new_xgrid = floor(mouse_x/grid_size);
 var _new_ygrid = floor(mouse_y/grid_size);
 

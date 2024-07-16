@@ -24,12 +24,12 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.6.1.160",
+    "IDEVersion":"2024.6.2.162",
   },
   "name":"Pentomino Prototype",
   "resources":[
-    {"id":{"name":"ac_pulse_2","path":"animcurves/ac_pulse_2/ac_pulse_2.yy",},},
     {"id":{"name":"ac_pulse","path":"animcurves/ac_pulse/ac_pulse.yy",},},
+    {"id":{"name":"ac_pulse2","path":"animcurves/ac_pulse2/ac_pulse2.yy",},},
     {"id":{"name":"EaseFastToSlow","path":"animcurves/EaseFastToSlow/EaseFastToSlow.yy",},},
     {"id":{"name":"EaseHeartbeat","path":"animcurves/EaseHeartbeat/EaseHeartbeat.yy",},},
     {"id":{"name":"EaseMidSlow","path":"animcurves/EaseMidSlow/EaseMidSlow.yy",},},
@@ -39,7 +39,6 @@
     {"id":{"name":"o_block","path":"objects/o_block/o_block.yy",},},
     {"id":{"name":"o_SharedTweener","path":"objects/o_SharedTweener/o_SharedTweener.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
-    {"id":{"name":"animcurve_lerp","path":"scripts/animcurve_lerp/animcurve_lerp.yy",},},
     {"id":{"name":"TGMX_0_MainTweens","path":"scripts/TGMX_0_MainTweens/TGMX_0_MainTweens.yy",},},
     {"id":{"name":"TGMX_1_EasyTweens","path":"scripts/TGMX_1_EasyTweens/TGMX_1_EasyTweens.yy",},},
     {"id":{"name":"TGMX_2_EaseFunctions","path":"scripts/TGMX_2_EaseFunctions/TGMX_2_EaseFunctions.yy",},},
