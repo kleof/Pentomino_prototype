@@ -15,7 +15,10 @@
     "name":"Pentomino Prototype",
     "path":"Pentomino Prototype.yyp",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"o_clickable",
+    "path":"objects/o_clickable/o_clickable.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
