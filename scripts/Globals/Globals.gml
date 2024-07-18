@@ -1,0 +1,1 @@
+global.grid = 30;
