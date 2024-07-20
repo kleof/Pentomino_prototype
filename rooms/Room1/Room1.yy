@@ -22,8 +22,8 @@
   ],
   "name":"Room1",
   "parent":{
-    "name":"Rooms",
-    "path":"folders/Rooms.yy",
+    "name":"Pentomino Prototype",
+    "path":"Pentomino Prototype.yyp",
   },
   "parentRoom":null,
   "physicsSettings":{

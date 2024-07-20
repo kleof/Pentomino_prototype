@@ -11,7 +11,6 @@
   "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"Objects","folderPath":"folders/Objects.yy","name":"Objects","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Rooms","folderPath":"folders/Rooms.yy","name":"Rooms","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Scripts","folderPath":"folders/Scripts.yy","name":"Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sprites","folderPath":"folders/Sprites.yy","name":"Sprites","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"TweenGMX","folderPath":"folders/TweenGMX.yy","name":"TweenGMX","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -41,6 +40,7 @@
     {"id":{"name":"o_clickable","path":"objects/o_clickable/o_clickable.yy",},},
     {"id":{"name":"o_SharedTweener","path":"objects/o_SharedTweener/o_SharedTweener.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"BlockScripts","path":"scripts/BlockScripts/BlockScripts.yy",},},
     {"id":{"name":"Globals","path":"scripts/Globals/Globals.yy",},},
     {"id":{"name":"StateMachine","path":"scripts/StateMachine/StateMachine.yy",},},
     {"id":{"name":"TGMX_0_MainTweens","path":"scripts/TGMX_0_MainTweens/TGMX_0_MainTweens.yy",},},

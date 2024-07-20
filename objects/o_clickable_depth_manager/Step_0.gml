@@ -1,3 +1,13 @@
+// Check if grid coordinates changed
+var _new_xgrid = floor(mouse_x/GRID);
+var _new_ygrid = floor(mouse_y/GRID);
+
+if (_new_xgrid != global.xgrid || _new_ygrid != global.ygrid) {
+	global.grid_update = true;
+	global.xgrid = _new_xgrid;
+	global.ygrid = _new_ygrid;
+} else global.grid_update = false;
+
 // Check which clickable object is on top in case of overlap
 var _under_cursor = [];
 with (o_clickable) {
