@@ -16,13 +16,19 @@ with (o_clickable) {
 	}
 }
 // NOTHING FOUND
-if (array_length(_under_cursor) == 0) exit;
+if (array_length(_under_cursor) == 0) {
+	if (current_hover != noone) {
+		current_hover.hover = false;
+		current_hover = noone;
+	}
+	exit;
+}
 
 // MOUSE IS OVER OBJECT(S)
 array_sort(_under_cursor, function(_a, _b) { return _b.depth - _a.depth }); // ?check if correct
 
-if (_under_cursor[0] != currently_hovered_over) {
-	if (currently_hovered_over != noone) currently_hovered_over.hover = false;
-	currently_hovered_over = _under_cursor[0];
-	currently_hovered_over.hover = true;
+if (_under_cursor[0] != current_hover) {
+	if (current_hover != noone) current_hover.hover = false;
+	current_hover = _under_cursor[0];
+	current_hover.hover = true;
 }

@@ -1,3 +1,4 @@
+// courtesy of Sam Spade
 function State() constructor {
 	start = function() {};
 	run = function() {};
