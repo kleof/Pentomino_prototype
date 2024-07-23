@@ -57,6 +57,7 @@
     {"id":{"name":"TGMX_System","path":"scripts/TGMX_System/TGMX_System.yy",},},
     {"id":{"name":"Sequence1","path":"sequences/Sequence1/Sequence1.yy",},},
     {"id":{"name":"s_block","path":"sprites/s_block/s_block.yy",},},
+    {"id":{"name":"s_block2","path":"sprites/s_block2/s_block2.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
