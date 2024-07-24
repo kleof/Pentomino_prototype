@@ -13,8 +13,8 @@
   "name":"o_block",
   "overriddenProperties":[],
   "parent":{
-    "name":"Pentomino Prototype",
-    "path":"Pentomino Prototype.yyp",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
   "parentObjectId":{
     "name":"o_clickable",

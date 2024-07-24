@@ -6,8 +6,8 @@
   "name":"o_clickable",
   "overriddenProperties":[],
   "parent":{
-    "name":"Pentomino Prototype",
-    "path":"Pentomino Prototype.yyp",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,

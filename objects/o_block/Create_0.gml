@@ -10,6 +10,7 @@ selected = false;
 idle_state = new State();
 idle_state.start = function() {
 	show_debug_message("IDLE");
+	layer = layer_get_id("Instances");
 }
 
 idle_state.run = function() {
@@ -23,6 +24,8 @@ idle_state.run = function() {
 hover_state = new State();
 hover_state.start = function() {
 	show_debug_message("HOVER");
+	layer = layer_get_id("Selected");
+	
 }
 
 hover_state.run = function() {
