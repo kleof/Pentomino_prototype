@@ -6,8 +6,8 @@ hover = false;
 selected = false;
 
 outline_fx = layer_get_fx("Outline");
-c_hover = [1.,0.792,0.11,1];
-c_selected = [0.176,1.,0.957,1];
+c_hover = color_to_array(#FFCA1C);
+c_selected = color_to_array(#2CFFF4);
 
 #region IDLE STATE
 
@@ -52,9 +52,25 @@ selected_state.start = function() {
 
 selected_state.run = function() {
 	if mouse_check_button_pressed(mb_left) change_state(hover_state);
+	if mouse_wheel_up() {
+		target_angle += 90;
+		TweenFire(id, tween_type, 0, true, 0, tween_dur, "image_angle>", target_angle);
+	}
+	if mouse_wheel_down() {
+		target_angle -= 90;
+		TweenFire(id, tween_type, 0, true, 0, tween_dur, "image_angle>", target_angle);
+	}
+	if mouse_check_button_pressed(mb_right) {
+		image_xscale = 1.1 * -sign(image_xscale);
+		image_yscale = 1.1;
+		TweenFire(id, "oElastic", 0, true, 0, .7, "image_xscale>", sign(image_xscale),
+												  "image_yscale>", sign(image_yscale));	
+	}
+	
 	if (!global.grid_update) exit;
 	x = (global.xgrid + .5) * GRID;
 	y = (global.ygrid + .5) * GRID;
+	//TweenFire(id, "oExpo", 0, true, 0, .1, "x>", tx, "y>", ty);
 }
 
 #endregion

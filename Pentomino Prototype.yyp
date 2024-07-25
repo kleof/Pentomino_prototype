@@ -55,6 +55,7 @@
     {"id":{"name":"TGMX_9_Settings","path":"scripts/TGMX_9_Settings/TGMX_9_Settings.yy",},},
     {"id":{"name":"TGMX_Experimental","path":"scripts/TGMX_Experimental/TGMX_Experimental.yy",},},
     {"id":{"name":"TGMX_System","path":"scripts/TGMX_System/TGMX_System.yy",},},
+    {"id":{"name":"Utils","path":"scripts/Utils/Utils.yy",},},
     {"id":{"name":"s_block","path":"sprites/s_block/s_block.yy",},},
     {"id":{"name":"s_block2","path":"sprites/s_block2/s_block2.yy",},},
   ],

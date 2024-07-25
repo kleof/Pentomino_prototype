@@ -13,7 +13,7 @@
   "layers":[
     {"$GMRInstanceLayer":"","%Name":"Outline","depth":-100,"effectEnabled":true,"effectType":"_filter_outline","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"Outline","properties":[
         {"name":"g_OutlineColour","type":1,"value":"#FF1CCAFF",},
-        {"name":"g_OutlineRadius","type":0,"value":"1.5",},
+        {"name":"g_OutlineRadius","type":0,"value":"3",},
         {"name":"g_OutlinePixelScale","type":0,"value":"1",},
       ],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Instances","depth":0,"effectEnabled":true,"effectType":"none","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[

@@ -19,6 +19,7 @@
   "height":90,
   "HTile":false,
   "layers":[
+    {"$GMImageLayer":"","%Name":"a948b4ed-8414-4262-a6a0-6e3ad26d6b35","blendMode":0,"displayName":"Layer 1","isLocked":false,"name":"a948b4ed-8414-4262-a6a0-6e3ad26d6b35","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
     {"$GMImageLayer":"","%Name":"305b0ad1-c710-4d7c-8d41-356f5deed9a3","blendMode":0,"displayName":"default","isLocked":false,"name":"305b0ad1-c710-4d7c-8d41-356f5deed9a3","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"s_block",
