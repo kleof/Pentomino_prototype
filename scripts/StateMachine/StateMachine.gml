@@ -10,6 +10,7 @@ function run_state() {
 }
  
 function change_state(_state) {
+	last_state = active_state;
 	active_state.stop();
 	active_state = _state;
 	active_state.start();
@@ -17,5 +18,6 @@ function change_state(_state) {
  
 function init_state(_state) {
 	active_state = _state;
+	last_state = _state;
 	active_state.start();
 }

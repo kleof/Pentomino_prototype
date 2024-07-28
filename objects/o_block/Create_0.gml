@@ -4,10 +4,15 @@ target_angle = image_angle;
 active = true;
 hover = false;
 selected = false;
+xscale = 1; // for squash and stretch effects, so it does not interfere with collision mask
+yscale = 1;
 
 outline_fx = layer_get_fx("Outline");
-c_hover = color_to_array(#FFCA1C);
-c_selected = color_to_array(#2CFFF4);
+fx_set_parameter(outline_fx, "g_OutlineRadius", 2);
+c_hover_1 = #FFFF7F;
+c_hover_2 = #89FFF9;
+TweenFire(self, "ioSine", "patrol", true, 0, 1, TPCol("c_hover_1>"), c_hover_2);
+c_selected = color_to_array(#EC6353);
 
 #region IDLE STATE
 
@@ -29,11 +34,16 @@ hover_state = new State();
 hover_state.start = function() {
 	show_debug_message("HOVER");
 	layer = layer_get_id("Outline");
-	fx_set_parameter(outline_fx, "g_OutlineColour", c_hover);
+	fx_set_parameter(outline_fx, "g_OutlineColour", color_to_array(c_hover_1));
+	if (last_state == idle_state) {
+		TweenFire(id, ac_pulse, 0, true, 0, .3, "xscale", sign(xscale), 1.4*sign(xscale),
+												"yscale", sign(yscale), 1.4*sign(yscale));
+	}
 }
 
 hover_state.run = function() {
 	if (not hover) change_state(idle_state);
+	fx_set_parameter(outline_fx, "g_OutlineColour", color_to_array(c_hover_1));
 	if mouse_check_button_pressed(mb_left) change_state(selected_state); // add move to mouse animation
 }
 
@@ -61,16 +71,27 @@ selected_state.run = function() {
 		TweenFire(id, tween_type, 0, true, 0, tween_dur, "image_angle>", target_angle);
 	}
 	if mouse_check_button_pressed(mb_right) {
-		image_xscale = 1.1 * -sign(image_xscale);
-		image_yscale = 1.1;
-		TweenFire(id, "oElastic", 0, true, 0, .7, "image_xscale>", sign(image_xscale),
-												  "image_yscale>", sign(image_yscale));	
+		xscale = sign(xscale) * -1;
+		image_xscale = sign(image_xscale) * -1;
+		TweenFire(id, ac_pulse, 0, true, 0, .3, "xscale", sign(xscale), 1.4*sign(xscale),
+												"yscale", sign(yscale), 1.4*sign(yscale));
+		//xscale = 1.1 * -sign(xscale);
+		//yscale = 1.1;
+		//TweenFire(id, "oElastic", 0, true, 0, .7, "xscale>", sign(xscale),
+		//										  "yscale>", sign(yscale));	
 	}
 	
 	if (!global.grid_update) exit;
 	x = (global.xgrid + .5) * GRID;
 	y = (global.ygrid + .5) * GRID;
 	//TweenFire(id, "oExpo", 0, true, 0, .1, "x>", tx, "y>", ty);
+}
+
+selected_state.stop = function() {
+	//xscale = sign(xscale) * 1.2;
+	//yscale = sign(yscale) * 1.2;
+	//TweenFire(id, "oExpo", 0, true, 0, .2, "xscale>", sign(xscale),
+	//										"yscale>", sign(yscale));
 }
 
 #endregion
