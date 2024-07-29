@@ -8,7 +8,7 @@ tweens = [];
 xscale = 1; yscale = 1;// for squash and stretch effects, so it does not interfere with collision mask
 
 outline_fx = layer_get_fx("Outline");
-fx_set_parameter(outline_fx, "g_OutlineRadius", 1.8);
+fx_set_parameter(outline_fx, "g_OutlineRadius", 2);
 layer_set_fx("Outline", outline_fx);
 c_hover_1 = #FFFF7F;
 c_hover_2 = #FFFF7F//#89FFF9;
@@ -55,14 +55,16 @@ hover_state.run = function() {
 
 selected_state = new State();
 selected_state.start = function() {
+	fx_set_parameter(outline_fx, "g_OutlineColour", c_selected);
 	finish_tweens(tweens);
-	xscale = 1.1 * sign(xscale);
-	yscale = 1.1 * sign(yscale);
+	//xscale = 1.1 * sign(xscale);
+	//yscale = 1.1 * sign(yscale);
 	show_debug_message("SELECTED");
 	var _x = (global.xgrid + .5) * GRID;
 	var _y = (global.ygrid + .5) * GRID;
 	TweenFire(id, "oExpo", 0, true, 0, .1, "x>", _x, "y>", _y);
-	fx_set_parameter(outline_fx, "g_OutlineColour", c_selected);
+	array_push(tweens, TweenFire(id, "oElastic", 0, true, 0, .6, "xscale", .8 * sign(xscale), 1.1*sign(xscale),
+															     "yscale", .8 * sign(yscale), 1.1*sign(yscale)));
 }
 
 selected_state.run = function() {
