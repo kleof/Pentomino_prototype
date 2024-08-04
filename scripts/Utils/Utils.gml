@@ -21,6 +21,7 @@ function color_to_array(_color) {
 		_ret[i] = _hex[i * 2 + 1] * 16 + _hex[i * 2];
 		_ret[i] /= 255;
 	}
-
+	array_push(_ret, 1);
+	
 	return _ret;
 }

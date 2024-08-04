@@ -1,3 +1,8 @@
-// for squash and stretch effects, so it does not interfere with collision mask
+// for scale effects, so it does not interfere with collision mask
 draw_sprite_ext(sprite_index, image_index, x, y, xscale, yscale, image_angle, c_white, image_alpha);
 
+// effects
+if (hover and not selected) {
+	frame.draw();
+}
+flash.draw();

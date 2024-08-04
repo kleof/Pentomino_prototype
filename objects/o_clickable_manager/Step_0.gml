@@ -1,6 +1,6 @@
 // Check if grid coordinates changed
-var _new_xgrid = floor(mouse_x/GRID);
-var _new_ygrid = floor(mouse_y/GRID);
+var _new_xgrid = (mouse_x div GRID); //floor(mouse_x/GRID);
+var _new_ygrid = (mouse_y div GRID); //floor(mouse_y/GRID);
 
 if (_new_xgrid != global.xgrid || _new_ygrid != global.ygrid) {
 	global.grid_update = true;
@@ -11,7 +11,7 @@ if (_new_xgrid != global.xgrid || _new_ygrid != global.ygrid) {
 // Look for any clickable objects under cursor
 var _under_cursor = [];
 with (o_clickable) {
-	if 	(position_meeting(mouse_x, mouse_y, id)) {
+	if 	(position_meeting(mouse_x, mouse_y, id)) { // instance_position() list?
 		array_push(_under_cursor, id);
 	}
 }
@@ -26,8 +26,14 @@ if (array_length(_under_cursor) == 0) {
 }
 
 // MOUSE IS OVER OBJECT(S) - Find one with lowest depth
-array_sort(_under_cursor, function(_a, _b) { return _b.depth - _a.depth }); // ?check if correct
+array_sort(_under_cursor, function(_a, _b) { return _a.depth - _b.depth });
 window_set_cursor(cr_handpoint);
+
+//var _str = "";
+//for (var i = 0; i < array_length(_under_cursor); i++) {
+//    _str += string(_under_cursor[i].depth) + " ";
+//}
+//show_debug_message(_str);
 
 if (_under_cursor[0] != current_hover) {
 	if (current_hover != noone) current_hover.hover = false;
