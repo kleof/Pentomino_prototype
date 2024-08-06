@@ -1,5 +1,5 @@
 
-// [TweenGMX 1.0.4]
+// [TweenGMX 1.0.5]
 
 // Feather ignore all
 
@@ -1070,7 +1070,7 @@ function TGMX_Tween(_script, _args, _tID)
 	// TRACK DELAY START
 	_t[@ TGMX_T_DELAY_START] = _t[TGMX_T_DELAY];
 
-	// HANDLE QUEUED CALLBACK EVENTS
+		// HANDLE QUEUED CALLBACK EVENTS
 	if (_qCallbacks != undefined)
 	{
 		// WE NEED TO USE THIS FOR ASSUMED CALLBACK TARGETS -- WE DONT WANT TO CREATE A DOUBLE WEAK REFERENCES FOR STRUCT TARGETS
@@ -1087,19 +1087,26 @@ function TGMX_Tween(_script, _args, _tID)
 			}
 			else // HANDLE ADVANCED CALLBACK
 			{
+				var _cArgs; // Arguments to be passed to TweenAddCallback() later on
 				var _cbDataTarget = _cbData[0];
-				static TGMX_STR_method = "method";
+				static TGMX_STR_method = "method"; // Cache string for optimization
 				
 				// Undefined -- use original method environment
 				if (_cbDataTarget == undefined) 
 				{
-					var _cArgs = [_tID, _event, method_get_self(_cbData[1])];
+					_cArgs = [_tID, _event, method_get_self(_cbData[1])];
 					array_copy(_cArgs, 3, _cbData, 1, array_length(_cbData)-1);
+				}
+				else // First argument is a method or function id -- _cbData[0] is first argument in array
+				if (is_method(_cbDataTarget) || real(_cbDataTarget) >= 100000 || typeof(_cbDataTarget) == TGMX_STR_method) // typeof() is used for HTML5 bug where built-in functions can change type
+				{
+					_cArgs = [_tID, _event, _raw_tween_target];
+					array_copy(_cArgs, 3, _cbData, 0, array_length(_cbData));
 				}
 				else // Explicit target using {target: some_target} -- DON'T WORRY ABOUT WEAK REFERENCES HERE, AS _cArgs IS TEMPORARY
 				if (is_struct(_cbDataTarget))
 				{	
-					var _cArgs = array_create(array_length(_cbData) + 2);
+					_cArgs = array_create(array_length(_cbData) + 2);
 					_cArgs[0] = _tID;
 					_cArgs[1] = _event;
 					
@@ -1116,20 +1123,15 @@ function TGMX_Tween(_script, _args, _tID)
 					
 					array_copy(_cArgs, 3, _cbData, 1, array_length(_cbData)-1);
 				}
-				else // First argument is a method or function id -- _cbData[0] is first argument in array
-				if (is_method(_cbDataTarget) || real(_cbDataTarget) >= 100000 || typeof(_cbDataTarget) == TGMX_STR_method) // typeof() is used for HTML5 bug where built-in functions can change type
-				{
-					var _cArgs = [_tID, _event, _raw_tween_target];
-					array_copy(_cArgs, 3, _cbData, 0, array_length(_cbData));
-				}
 				else // INSTANCE self | other TARGET -- NOTE -- THE FOLLOWING IS ONLY FOR INSTANCES AND NOT STRUCTS, WHICH ARE HANDLED ABOVE
 				{
-					var _cArgs = [_tID, _event, _cbDataTarget.id];
-					array_copy(_cArgs, 3, _cbData, 1, array_length(_cbData)-1);
+					_cArgs = [_tID, _event, _raw_tween_target];
+					array_copy(_cArgs, 3, _cbData, 0, array_length(_cbData));
 				}
 				
+				
 				// Execute TweenAddCallback() with defined arguments above
-				script_execute_ext(TweenAddCallback, _cArgs);	
+				script_execute_ext(TweenAddCallback, _cArgs);
 			}
 		}
 

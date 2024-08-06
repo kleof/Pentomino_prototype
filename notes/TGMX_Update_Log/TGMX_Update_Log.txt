@@ -1,6 +1,18 @@
 
 [TweenGMX]
 
+[v1.0.5]
+
+- Fix for inline callbacks involving built-in functions with passed arguments
+	* e.g.
+		TweenFire(..., "@finish", [show_message, "Done!"]);
+
+- Added "soft" and "softer" variations for EaseBack* types
+	* e.g.
+		EaseOutBackSoft
+		"ioBackSofter"
+	
+
 [v1.0.4]
 
 - Fixes for recent GameMaker changes

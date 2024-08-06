@@ -6,7 +6,7 @@
 	This will bring health to your body and nourishment to your bones.
 */
 
-/// @desc [TweenGMX 1.0.4]
+/// @desc [TweenGMX 1.0.5]
 /// Feather ignore all
 
 TGMX_2_EaseFunctions();

@@ -36,25 +36,24 @@ function OutlineEffect(_owner, _radius, _color1, _color2=undefined) constructor 
 	owner = _owner;
 	radius = _radius;
 	color1 = _color1;
-	color2 = _color2 ?? _color1;
-	color_to_tween = _color1;
+	color2 = _color2;
 	fx = fx_create("_filter_outline");
 	TPFunc(self, "update", function(v,t)
     {
-		fx_set_parameter(t.fx, "g_OutlineColour", color_to_array(t.color_to_tween));
+		fx_set_parameter(t.fx, "g_OutlineColour", color_to_array(t.color1));
     });
-	tween = -1;
+	tween = TweenCreate(self, "Linear", "patrol", true, 0, .5, TPCol("color1"), color1, color2, "update", 0, 1);
 	
 	static start = function() {
 		fx_set_single_layer(fx, true);
 		fx_set_parameter(fx, "g_OutlineRadius", radius);
-		fx_set_parameter(fx, "g_OutlineColour", color_to_array(color_to_tween));
+		fx_set_parameter(fx, "g_OutlineColour", color_to_array(color1));
 		layer_set_fx(owner.layer, fx);
-		tween = TweenFire(self, "Linear", "patrol", true, 0, .5, TPCol("color_to_tween"), color1, color2, "update", 0, 1);
+		if (color2 != undefined) TweenPlay(tween);
 	}
 	
 	static stop = function() {
-		TweenDestroy(tween);
+		if (color2 != undefined) TweenStop(tween);
 		layer_clear_fx(owner.layer);	
 	}
 }

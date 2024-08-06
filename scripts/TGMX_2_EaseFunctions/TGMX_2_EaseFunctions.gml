@@ -417,6 +417,94 @@ function EaseInOutBack(_time, _start, _change, _duration)
 	return _change * 0.5 * (((_duration + 1) * _time + _duration) * _time * _time + 2) + _start;
 }
 
+/// @param {real} time 
+/// @param {real} start 
+/// @param {real} change 
+/// @param {real} duration
+function EaseInBackSoft(_time, _start, _change, _duration)
+{
+	_time /= _duration;
+	_duration = 0.7; // repurpose _duration as Robert Penner's "s" value -- You can hardcode this into wherever you see '_duration' in the next line
+	return _change * _time * _time * ((_duration + 1) * _time - _duration) + _start;
+}
+
+/// @param {real} time 
+/// @param {real} start 
+/// @param {real} change 
+/// @param {real} duration
+function EaseInBackSofter(_time, _start, _change, _duration)
+{
+	_time /= _duration;
+	_duration = 0.3; // repurpose _duration as Robert Penner's "s" value -- You can hardcode this into wherever you see '_duration' in the next line
+	return _change * _time * _time * ((_duration + 1) * _time - _duration) + _start;
+}
+
+/// @param {real} time 
+/// @param {real} start 
+/// @param {real} change 
+/// @param {real} duration
+function EaseOutBackSoft(_time, _start, _change, _duration)
+{
+    _time = _time/_duration - 1;
+    _duration = 0.7; // "s"
+    
+    return _change * (_time * _time * ((_duration + 1) * _time + _duration) + 1) + _start;
+}
+
+/// @param {real} time 
+/// @param {real} start 
+/// @param {real} change 
+/// @param {real} duration
+function EaseOutBackSofter(_time, _start, _change, _duration)
+{
+    _time = _time/_duration - 1;
+    _duration = 0.3; // "s"
+    
+    return _change * (_time * _time * ((_duration + 1) * _time + _duration) + 1) + _start;
+}
+
+/// @param {real} time 
+/// @param {real} start 
+/// @param {real} change 
+/// @param {real} duration
+function EaseInOutBackSoft(_time, _start, _change, _duration)
+{
+	_time = _time/_duration*2;
+	_duration = 0.7; // "s"
+
+	if (_time < 1)
+	{
+	    _duration *= 1.525;
+	    return _change * 0.5 * (((_duration + 1) * _time - _duration) * _time * _time) + _start;
+	}
+
+	_time -= 2;
+	_duration *= 1.525;
+
+	return _change * 0.5 * (((_duration + 1) * _time + _duration) * _time * _time + 2) + _start;
+}
+
+/// @param {real} time 
+/// @param {real} start 
+/// @param {real} change 
+/// @param {real} duration
+function EaseInOutBackSofter(_time, _start, _change, _duration)
+{
+	_time = _time/_duration*2;
+	_duration = 0.3; // "s"
+
+	if (_time < 1)
+	{
+	    _duration *= 1.525;
+	    return _change * 0.5 * (((_duration + 1) * _time - _duration) * _time * _time) + _start;
+	}
+
+	_time -= 2;
+	_duration *= 1.525;
+
+	return _change * 0.5 * (((_duration + 1) * _time + _duration) * _time * _time + 2) + _start;
+}
+
 
 // BOUNCE
 
@@ -647,6 +735,13 @@ function TGMX_2_EaseFunctions()
 	f(EaseToCurve(EaseInBack), "iback", "inback");
 	f(EaseToCurve(EaseOutBack), "oback", "outback");
 	f(EaseToCurve(EaseInOutBack), "ioback", "inoutback");
+	
+	f(EaseToCurve(EaseInBackSoft), "ibacksoft", "inbacksoft");
+	f(EaseToCurve(EaseInBackSofter), "ibacksofter", "inbacksofter");
+	f(EaseToCurve(EaseOutBackSoft), "obacksoft", "outbacksoft");
+	f(EaseToCurve(EaseOutBackSofter), "obacksofter", "outbacksofter");
+	f(EaseToCurve(EaseInOutBackSoft), "iobacksoft", "inoutbacksoft");
+	f(EaseToCurve(EaseInOutBackSofter), "iobacksofter", "inoutbacksofter");
 
 	// Bounce
 	f(EaseToCurve(EaseInBounce), "ibounce", "inbounce");
