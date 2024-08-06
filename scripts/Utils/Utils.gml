@@ -25,3 +25,15 @@ function color_to_array(_color) {
 	
 	return _ret;
 }
+
+function map(_value, _value_min, _value_max, _target_min, _target_max) {
+    return (((_value - _value_min) / (_value_max - _value_min)) * (_target_max - _target_min)) + _target_min;
+}
+
+function trace() {
+	var _str = "";
+	for (var i = 0; i < argument_count; i++) {
+		_str += string(argument[i]);
+	}
+	show_debug_message(_str);
+}
